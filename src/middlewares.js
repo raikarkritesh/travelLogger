@@ -10,7 +10,7 @@ const errorHandler = (error, req, res, next) => {
     res.status(statusCode);
     res.json({ 
         message: error.message,
-        stack: error.stack // change this when in production
+        stack: process.env.NODE_ENV === 'production' ? '🥞' : error.stack, 
     });
 }
 
