@@ -16,7 +16,7 @@ app.use(helmet());
 app.use(cors({
     origin: process.env.CORS_ORIGIN,
 }));
-app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 //home page
 app.get('/', (req, res) =>{
