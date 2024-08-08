@@ -9,12 +9,13 @@ const App = () => {
   const [showPopup, setShowPopup] = useState({});
   const [newLocation, setNewLocation] = useState(null);
 
+  const getEntries = async () => {
+    const logEntries = await listLogEntries();
+    setLogEntries(logEntries);
+  };
+
   useEffect(() => {
-    (async () => {
-      const logEntries = await listLogEntries();
-      setLogEntries(logEntries);
-      console.log(process.env.REACT_APP_MAPBOX_TOKEN);
-    })();
+    getEntries();
   }, []);
 
   const showAddMarkerPopup = (event) => {
@@ -88,7 +89,10 @@ const App = () => {
               onClose={() => setNewLocation(null)}
               anchor="top" >
               <div className="popup">
-                <LogEntryForm location={newLocation}/>
+                <LogEntryForm onClose={() => {
+                  setNewLocation(null);
+                  getEntries();
+                }} location={newLocation}/>
               </div>
             </Popup>
           </>

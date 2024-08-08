@@ -18,6 +18,6 @@ A full stack application to store / list places you have traveled.
   * List all log entries
 * [x] Setup Client
 * [X] Create Form to add a new entry
-* [] Setup Map SDK on client
-* [] List all log entries on map
+* [x] Setup Map SDK on client
+* [x] List all log entries on map
 * [] DEPLOY!
